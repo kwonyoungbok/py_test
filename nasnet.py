@@ -14,17 +14,14 @@ if __name__ == '__main__':
                         pooling=None,
                         classes=1000)
 
-                        
-
-    img_path = 'Elephant.jpeg'
-    img = image.load_img(img_path, target_size=(299, 299))
-    x = image.img_to_array(img)
-    x = np.expand_dims(x, axis=0)
-
-    x = preprocess_input(x)
-
 
     for i in range(5):
+        img_path = str(i+1)+'.jpg'
+        img = image.load_img(img_path, target_size=(299, 299))
+        x = image.img_to_array(img)
+        x = np.expand_dims(x, axis=0)
+        x = preprocess_input(x)
+
         st= time.time()
         preds = model.predict(x)
         print("inf",i,": ", time.time()-st)
