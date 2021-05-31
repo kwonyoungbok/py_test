@@ -13,7 +13,11 @@ if __name__ == '__main__':
     x = np.expand_dims(x, axis=0)
 
     x = preprocess_input(x)
-    st= time.time()
-    preds = model.predict(x)
-    print("inffffffffffffff: ",time.time()-st)
+
+
+    for i in range(5):
+        st= time.time()
+        preds = model.predict(x)
+        print("inf",i,": ", time.time()-st)
+
     print('Predicted:', decode_predictions(preds))
